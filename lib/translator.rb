@@ -2,7 +2,6 @@ require 'yaml'
 require 'pry'
 
 def load_library(file)
- 
   data = YAML.load_file(file)
   result = {}
   data.each do |emoti_name, emoti_trans|
@@ -12,7 +11,6 @@ def load_library(file)
         :english => english,
         :japanese => japanese
     }
-   
   end
   result
 end
@@ -21,12 +19,6 @@ end
 def get_japanese_emoticon(file , western_emoticon)
   result = "Sorry, that emoticon was not found"
   data = load_library(file)
-  #data = {
-    # "happy" => {
-    #  :english => :) ,
-     # :japanese => )))
-   # }
-  #}
   data.each do |emoti_name , emoti_trans|
     if emoti_trans[:english] == western_emoticon
       result = emoti_trans[:japanese]
@@ -34,7 +26,6 @@ def get_japanese_emoticon(file , western_emoticon)
   end
   result 
 end
-
 
 
 def get_english_meaning(file, japanese_emoticon)
